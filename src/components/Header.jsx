@@ -10,7 +10,7 @@ export const Header = () => {
         <a className="navbar-brand" href="index.html">
           <img src={Logo} alt="Logo del Local" />
         </a>
-        <Search/>
+        <Search />
         <CartWidget />
         <NavOptions />
       </div>
