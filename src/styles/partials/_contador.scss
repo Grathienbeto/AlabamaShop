@@ -1,0 +1,26 @@
+.stockDiv {
+  .stock {
+    text-align: center;
+  }
+  .cantidadDeItems {
+    background-color: whitesmoke;
+    border: 1px solid gray;
+    font-size: 18px;
+    width: 100%;
+    display: flex;
+    flex: row wrap;
+    justify-content: space-between;
+    .countBotton {
+      color: #0000ff;
+      border: none;
+      font-weight: bold;
+      padding: 0 1em;
+    }
+  }
+  .comprarBotton {
+    background-color: #333333;
+    color: #dddddd;
+    margin-top: 0.25rem;
+    width: 100%;
+  }
+}

@@ -1,10 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Bebas Neue", cursive;
+}
+* a {
+  text-decoration: none;
+  color: black;
+}
+* a:visited {
+  color: black;
 }
 
-nav img {
-  height: 50px;
-  width: 50px;
+nav {
+  background-color: lightgray;
+}
+nav .navigation {
+  width: 75%;
+  margin: 0 auto;
+  align-items: center;
+  padding: 0;
+}
+nav .navigation .brand {
+  color: black;
+  font-size: 3rem;
+  text-decoration: none;
+}
+nav .navigation .options {
+  font-size: 2rem;
+  margin-left: 1em;
+}
+nav .navigation .cart {
+  color: rebeccapurple;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 991px) {
+  nav .navigation {
+    padding: 0;
+    width: 90%;
+  }
+  nav .navigation .brand {
+    font-size: 2rem;
+    order: 1;
+  }
+  nav .navigation .options {
+    margin-left: 0;
+    order: 3;
+    font-size: 1.5rem;
+  }
+  nav .navigation .cart {
+    order: 2;
+  }
+}
+.stockDiv .stock {
+  text-align: center;
+}
+.stockDiv .cantidadDeItems {
+  background-color: whitesmoke;
+  border: 1px solid gray;
+  font-size: 18px;
+  width: 100%;
+  display: flex;
+  flex: row wrap;
+  justify-content: space-between;
+}
+.stockDiv .cantidadDeItems .countBotton {
+  color: #0000ff;
+  border: none;
+  font-weight: bold;
+  padding: 0 1em;
+}
+.stockDiv .comprarBotton {
+  background-color: #333333;
+  color: #dddddd;
+  margin-top: 0.25rem;
+  width: 100%;
+}
+
+.card {
+  max-width: 18rem;
+  margin: 1em 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.card img {
+  border-bottom: 1px solid gray;
+}
+
+.containerProductos {
+  width: 75%;
+}
+.containerProductos .ItemList {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+@media screen and (max-width: 990px) {
+  .containerProductos {
+    width: 90%;
+  }
 }/*# sourceMappingURL=styles.css.map */

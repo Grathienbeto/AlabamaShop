@@ -1,8 +1,8 @@
-const NavOptions = () => {
+const NavOptions = ({children}) => {
   return (
     <>
       <button
-        className="navbar-toggler"
+        className="navbar-toggler toggler"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNavDropdown"
@@ -13,20 +13,20 @@ const NavOptions = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
 
-      <div className="collapse navbar-collapse" id="navbarNavDropdown">
+      <div className="collapse navbar-collapse options" id="navbarNavDropdown">
         <ul className="navbar-nav">
           <li className="nav-item">
             <a
               className="nav-link"
               aria-current="page"
-              href="./pages/joyeria.html"
+              href="./joyeria.html"
             >
               Joyeria
             </a>
           </li>
 
           <li className="nav-item">
-            <a className="nav-link" href="./pages/merch.html">
+            <a className="nav-link" href="./merch.html">
               Merchandising
             </a>
           </li>
