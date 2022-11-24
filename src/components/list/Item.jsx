@@ -1,7 +1,8 @@
-import Stock from "./Stocks";
+import VerDetalles from "./VerDetallesButton";
 
-const ItemDetail = ({ product }) => {
 
+const Item = ({ product }) => {
+  const InfoItem = product
   return (
     <div className="card">
       <img
@@ -13,10 +14,11 @@ const ItemDetail = ({ product }) => {
         <h5 className="card-title">{product.name}</h5>
         <p className="card-text">{product.description}</p>
         <p>${product.precio}</p>
-        <Stock stock={product.stock} />
+        <p>{product.stock}</p>
       </div>
+      <VerDetalles info={InfoItem} />
     </div>
   );
 };
 
-export default ItemDetail;
+export default Item;

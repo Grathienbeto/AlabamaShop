@@ -1,14 +1,14 @@
 // Componentes
-import Navbar from "./navbar/Navbar";
-
 import ItemListContainer from "./list/ItemListContainer";
-
+import { Layout } from "./Layout";
 
 const App = () => {
   return (
     <>
-      <Navbar />
-      <ItemListContainer />
+      <Layout>
+        <ItemListContainer />
+
+      </Layout>
     </>
   );
 };

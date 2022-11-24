@@ -1,4 +1,6 @@
-const NavOptions = ({children}) => {
+import { Link } from "react-router-dom";
+
+const NavOptions = ({ children }) => {
   return (
     <>
       <button
@@ -16,24 +18,21 @@ const NavOptions = ({children}) => {
       <div className="collapse navbar-collapse options" id="navbarNavDropdown">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a
-              className="nav-link"
-              aria-current="page"
-              href="./joyeria.html"
-            >
+            <Link className="nav-link" aria-current="page" to="/category/joyeria">
               Joyeria
-            </a>
+            </Link>
           </li>
 
           <li className="nav-item">
-            <a className="nav-link" href="./merch.html">
+            <Link className="nav-link" to="/category/merchandising">
               Merchandising
-            </a>
+            </Link>
           </li>
+
         </ul>
       </div>
     </>
   );
 };
-
+ 
 export default NavOptions;

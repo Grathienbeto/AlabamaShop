@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // Actualiza el Stock
-const Stock = ({ stock }) => {
+const Stock = ( {stock} ) => {
   // setea la compra inicial a 0
   const [count, setCount] = useState(() => {
     return 0;

@@ -1,14 +1,15 @@
 import NavOptions from "./NavOptions";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="navigation nav-container container-fluid ">
 
-        <a className="brand" href="index.html">
+        <Link className="brand" to="/">
           ALABAMA
-        </a>
+        </Link>
 
         <NavOptions />
         
