@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // Actualiza el Stock
-const Stock = ( {stock} ) => {
+const ItemCount = ( {stock} ) => {
   // setea la compra inicial a 0
   const [count, setCount] = useState(() => {
     return 0;
@@ -31,6 +31,7 @@ const Stock = ( {stock} ) => {
   // fx que compra y disminuye el stock dependiendo de cuanto haya comprado
   const onAdd = () => {
     setNuevoStock(nuevoStock - count);
+    setCount(0)      
     if (nuevoStock <= 0) {
       setNuevoStock(nuevoStock);
     }
@@ -67,4 +68,4 @@ const Stock = ( {stock} ) => {
   );
 };
 
-export default Stock;
+export default ItemCount;

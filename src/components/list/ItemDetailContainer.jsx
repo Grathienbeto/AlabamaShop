@@ -8,8 +8,7 @@ import Productos from "../../mocks/ProductosMock";
 const ItemDetailContainer = () => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
-  console.log(useParams())
-
+  
   useEffect(() => {
     new Promise((resolve) =>
       setTimeout(() => {

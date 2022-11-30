@@ -1,4 +1,4 @@
-import Stock from "./Stocks";
+import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ product }) => {
 
@@ -13,7 +13,7 @@ const ItemDetail = ({ product }) => {
         <h5 className="card-title">{product.name}</h5>
         <p className="card-text">{product.description}</p>
         <p>${product.precio}</p>
-        <Stock stock={product.stock} />
+        <ItemCount stock={product.stock} />
       </div>
     </div>
   );
