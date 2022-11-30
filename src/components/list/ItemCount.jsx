@@ -56,16 +56,23 @@ const ItemCount = ( {stock} ) => {
       </div>
 
       <div>
-        <button
-          className="comprarBotton"
-          onClick={onAdd}
-          disabled={nuevoStock === 0}
-        >
-          COMPRAR
-        </button>
+        {nuevoStock > 0 ? ( 
+                  <button
+                  className="comprarBotton"
+                  onClick={onAdd}
+                >
+                  COMPRAR
+                </button>) : (<button
+                  className="sinStockBotton"
+                  disabled
+                >
+                  No hay disponibilidad
+                </button>)}
       </div>
     </div>
   );
 };
 
 export default ItemCount;
+
+
