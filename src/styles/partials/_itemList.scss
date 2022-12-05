@@ -1,14 +1,45 @@
 .containerProductos {
-    width: 75%;
-    .ItemList {
-        display: flex;
-        flex-flow: row wrap;
+  width: 75%;
+  .ItemList {
+    display: flex;
+    flex-flow: row wrap;
+    .card {
+      font-size: 1.25rem;
+      margin: 1em;
+      .card-body {
+        background-color: #ffffff;
+        .card-title {
+          font-size: 1.5rem;
+          text-decoration: underline #639;
+        }
+        p {
+          margin: 0.25em 0;
+        }
+        .card-price-stock{
+            display: flex;
+            justify-content: space-between;
+        }
+      }
+      .detallesButtonDiv {
+        background-color: #282726;
+        padding: 0.25em 0;
+        font-size: 1.25rem;
+        text-align: center;
+        width: 100%;
+        .detallesButton {
+          color: #dfe2e3;
+          padding: 0 5rem;
+        }
+      }
     }
+  }
 }
 
 @media screen and (max-width: 990px) {
-    .containerProductos {
-        width: 90%
+  .containerProductos {
+    width: 90%;
+    .card {
+      margin: 0.5em;
     }
-    
+  }
 }

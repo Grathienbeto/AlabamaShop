@@ -1,8 +1,7 @@
 import VerDetalles from "./VerDetallesButton";
 
-
 const Item = ({ product }) => {
-  const InfoItem = product
+  const InfoItem = product;
   return (
     <div className="card">
       <img
@@ -13,8 +12,10 @@ const Item = ({ product }) => {
       <div className="card-body">
         <h5 className="card-title">{product.name}</h5>
         <p className="card-text">{product.description}</p>
-        <p>${product.precio}</p>
-        <p>{product.stock}</p>
+        <div className="card-price-stock">
+          <p>${product.precio}</p>
+          <p>Stock: {product.stock}</p>
+        </div>
       </div>
       <VerDetalles info={InfoItem} />
     </div>

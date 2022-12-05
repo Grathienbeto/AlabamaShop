@@ -1,0 +1,16 @@
+// $color-dark: #282726;
+// $color-middle: #777472;
+// $color-light: #dfe2e3;
+// $color-contrast: #b56e20;
+
+.detail-card {
+    display: flex;
+    margin: 3em auto;
+    width: 50%;
+    img {
+        border: 1px solid black;
+        margin: 0 2em;
+        padding: 2em;
+        width: 70%;
+    }
+}

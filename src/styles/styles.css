@@ -95,12 +95,57 @@ nav .navigation .cart {
   display: flex;
   flex-flow: row wrap;
 }
+.containerProductos .ItemList .card {
+  font-size: 1.25rem;
+  margin: 1em;
+}
+.containerProductos .ItemList .card .card-body {
+  background-color: #ffffff;
+}
+.containerProductos .ItemList .card .card-body .card-title {
+  font-size: 1.5rem;
+  -webkit-text-decoration: underline #639;
+          text-decoration: underline #639;
+}
+.containerProductos .ItemList .card .card-body p {
+  margin: 0.25em 0;
+}
+.containerProductos .ItemList .card .card-body .card-price-stock {
+  display: flex;
+  justify-content: space-between;
+}
+.containerProductos .ItemList .card .detallesButtonDiv {
+  background-color: #282726;
+  padding: 0.25em 0;
+  font-size: 1.25rem;
+  text-align: center;
+  width: 100%;
+}
+.containerProductos .ItemList .card .detallesButtonDiv .detallesButton {
+  color: #dfe2e3;
+  padding: 0 5rem;
+}
 
 @media screen and (max-width: 990px) {
   .containerProductos {
     width: 90%;
   }
+  .containerProductos .card {
+    margin: 0.5em;
+  }
 }
 main {
   background-color: whitesmoke;
+}
+
+.detail-card {
+  display: flex;
+  margin: 3em auto;
+  width: 50%;
+}
+.detail-card img {
+  border: 1px solid black;
+  margin: 0 2em;
+  padding: 2em;
+  width: 70%;
 }/*# sourceMappingURL=styles.css.map */

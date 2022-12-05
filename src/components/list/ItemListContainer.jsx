@@ -8,7 +8,6 @@ import Productos from "../../mocks/ProductosMock";
 const ItemListContainer = () => {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
-  console.log(useParams())
 
   useEffect(() => {
     new Promise((resolve) =>

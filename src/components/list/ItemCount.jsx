@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 // Actualiza el Stock
-const ItemCount = ( {stock} ) => {
+const ItemCount = ({ stock }) => {
   // setea la compra inicial a 0
   const [count, setCount] = useState(() => {
-    return 0;
+    return 1;
   });
 
   // setea el Stock
@@ -15,8 +15,8 @@ const ItemCount = ( {stock} ) => {
   // fx que disminuye la cantidad que uno quiere comprar
   const decrease = () => {
     setCount((prevCount) => prevCount - 1);
-    if (count <= 0) {
-      setCount(0);
+    if (count <= 1) {
+      setCount(1);
     }
   };
 
@@ -31,7 +31,7 @@ const ItemCount = ( {stock} ) => {
   // fx que compra y disminuye el stock dependiendo de cuanto haya comprado
   const onAdd = () => {
     setNuevoStock(nuevoStock - count);
-    setCount(0)      
+    setCount(1);
     if (nuevoStock <= 0) {
       setNuevoStock(nuevoStock);
     }
@@ -43,36 +43,37 @@ const ItemCount = ( {stock} ) => {
         <h2 className="stock">Stock: {nuevoStock}</h2>
       </div>
 
-      <div className="cantidadDeItems">
-        <button className="countBotton" onClick={decrease}>
-          -
-        </button>
+      {nuevoStock > 0 ? (
+        <div className="cantidadDeItems">
+          <button className="countBotton" onClick={decrease}>
+            -
+          </button>
 
-        <span>{count}</span>
+          <span>{count}</span>
 
-        <button className="countBotton" onClick={increase}>
-          +
-        </button>
-      </div>
+          <button className="countBotton" onClick={increase}>
+            +
+          </button>
+        </div>
+      ) : (
+        <h2>No hay Stock</h2>
+      )}
 
+      {/* Boton habilitado cuando hay stock, desabilitado cuando no lo hay */}
       <div>
-        {nuevoStock > 0 ? ( 
-                  <button
-                  className="comprarBotton"
-                  onClick={onAdd}
-                >
-                  COMPRAR
-                </button>) : (<button
-                  className="sinStockBotton"
-                  disabled
-                >
-                  No hay disponibilidad
-                </button>)}
+        {nuevoStock > 0 ? (
+          <button className="comprarBotton" onClick={onAdd}>
+            Agregar al carrito
+          </button>
+        ) : (
+          <button className="sinStockBotton" disabled>
+            No hay disponibilidad
+          </button>
+        )}
       </div>
+  
     </div>
   );
 };
 
 export default ItemCount;
-
-

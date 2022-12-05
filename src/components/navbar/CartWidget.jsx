@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const cart = <FontAwesomeIcon icon={faCartShopping} className="fa-l cart" />;
 
@@ -7,7 +8,7 @@ const cart = <FontAwesomeIcon icon={faCartShopping} className="fa-l cart" />;
 const CartWidget = () => {
   return (
     <>
-      <a href="index.html" className="cart">{cart}</a>
+      <Link to="/cart" className="cart">{cart}</Link>
     </>
   );
 };
