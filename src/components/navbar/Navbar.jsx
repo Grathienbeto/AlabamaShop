@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg">
       <div className="navigation nav-container container-fluid ">
 
-        <Link className="brand" to="/">
+        <Link className="brand" to="/AlabamaShop">
           ALABAMA
         </Link>
 

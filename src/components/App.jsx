@@ -4,11 +4,9 @@ import { Layout } from "./Layout";
 
 const App = () => {
   return (
-    <>
-      <Layout>
-        <ItemListContainer />
-      </Layout>
-    </>
+    <Layout>
+      <ItemListContainer />
+    </Layout>
   );
 };
 

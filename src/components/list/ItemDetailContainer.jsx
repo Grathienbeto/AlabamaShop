@@ -8,12 +8,12 @@ import Productos from "../../mocks/ProductosMock";
 const ItemDetailContainer = () => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
-  
+
   useEffect(() => {
     new Promise((resolve) =>
       setTimeout(() => {
         resolve(Productos);
-      }, 500)
+      }, 0)
     ).then((data) => {
       if (id) {
         const ItemId = data.find((product) => product.id === parseInt(id));

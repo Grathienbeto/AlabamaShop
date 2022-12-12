@@ -140,12 +140,13 @@ main {
 
 .detail-card {
   display: flex;
+  font-size: 1.5rem;
   margin: 3em auto;
-  width: 50%;
+  width: 80%;
 }
 .detail-card img {
   border: 1px solid black;
   margin: 0 2em;
   padding: 2em;
-  width: 70%;
+  max-width: 60%;
 }/*# sourceMappingURL=styles.css.map */

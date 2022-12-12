@@ -11,7 +11,7 @@ import CartView from "../views/cart";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/AlabamaShop",
     element: <App />,
   },
   {

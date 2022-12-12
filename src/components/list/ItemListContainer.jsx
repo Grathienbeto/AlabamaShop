@@ -25,6 +25,7 @@ const ItemListContainer = () => {
       }
     });
   }, [category]);
+
   return (
     <div className="containerProductos mx-auto ">
       <ItemList products={products} />

@@ -16,7 +16,9 @@ const NavOptions = ({ children }) => {
       </button>
 
       <div className="collapse navbar-collapse options" id="navbarNavDropdown">
+        
         <ul className="navbar-nav">
+
           <li className="nav-item">
             <Link className="nav-link" aria-current="page" to="/category/joyeria">
               Joyeria
