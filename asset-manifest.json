@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/AlabamaShop/static/css/main.1d8752d4.css",
-    "main.js": "/AlabamaShop/static/js/main.1fe61395.js",
+    "main.css": "/AlabamaShop/static/css/main.83fc6a72.css",
+    "main.js": "/AlabamaShop/static/js/main.9ab41fe7.js",
     "index.html": "/AlabamaShop/index.html",
-    "main.1d8752d4.css.map": "/AlabamaShop/static/css/main.1d8752d4.css.map",
-    "main.1fe61395.js.map": "/AlabamaShop/static/js/main.1fe61395.js.map"
+    "main.83fc6a72.css.map": "/AlabamaShop/static/css/main.83fc6a72.css.map",
+    "main.9ab41fe7.js.map": "/AlabamaShop/static/js/main.9ab41fe7.js.map"
   },
   "entrypoints": [
-    "static/css/main.1d8752d4.css",
-    "static/js/main.1fe61395.js"
+    "static/css/main.83fc6a72.css",
+    "static/js/main.9ab41fe7.js"
   ]
 }
