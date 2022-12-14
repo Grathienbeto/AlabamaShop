@@ -3,23 +3,40 @@ import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 
 // Mock
-import Productos from "../../mocks/ProductosMock";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
 
   useEffect(() => {
-    new Promise((resolve) =>
-      setTimeout(() => {
-        resolve(Productos);
-      }, 0)
-    ).then((data) => {
-      if (id) {
-        const ItemId = data.find((product) => product.id === parseInt(id));
-        setItem(ItemId);
-      }
-    });
+    const db = getFirestore();
+    const itemCollection = collection(db, "items");
+
+    // con filtro
+
+
+    //
+    getDocs(itemCollection)
+      .then((snapshot) => {
+        const productosDb = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        return productosDb;
+      })
+      .then((snapshot) =>
+        snapshot.find((doc) => {
+          return doc.id === id ? doc : null;
+        })
+      )
+      .then((snapshot) => setItem(snapshot));
   }, [id]);
 
   if (!item) {

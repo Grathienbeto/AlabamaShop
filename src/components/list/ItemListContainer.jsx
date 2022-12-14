@@ -3,27 +3,53 @@ import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 
 // Mock
-import Productos from "../../mocks/ProductosMock";
+// import Productos from "../../mocks/ProductosMock";
+
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
 const ItemListContainer = () => {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    new Promise((resolve) =>
-      setTimeout(() => {
-        resolve(Productos);
-      }, 1000)
-    ).then((data) => {
-      if (category) {
-        const categories = data.filter(
-          (product) => product.category === category
-        );
-        setProducts(categories);
-      } else {
-        setProducts(data);
-      }
+    const db = getFirestore();
+    const itemCollection = collection(db, "items");
+
+    getDocs(itemCollection).then((snapshot) => {
+      const productosDb = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        category: doc.category,
+        ...doc.data(),
+      }));
+      setProducts(productosDb);
     });
+
+    if (category === "joyeria") {
+      const q = query(itemCollection, where("category", "==", "joyeria"));
+      getDocs(q).then((snapshot) => {
+        const products = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setProducts(products);
+      });
+    } else if (category === "merchandising") {
+      const q = query(itemCollection, where("category", "==", "merchandising"));
+
+      getDocs(q).then((snapshot) => {
+        const products = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setProducts(products);
+      });
+    }
   }, [category]);
 
   return (

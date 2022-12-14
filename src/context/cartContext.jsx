@@ -30,8 +30,7 @@ export const CartContextProvider = ({ children }) => {
 */
 
   const addItem = (item, cantidad) => {
-    console.log(item, cantidad)
-    
+   
     if (isInCart(item.id)) {
       const sumaQuantity = carrito.map((producto) => {
         if (producto.id === item.id) {
