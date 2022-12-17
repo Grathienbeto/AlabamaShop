@@ -13,10 +13,6 @@ const CartItemContainer = () => {
           <CartItem key={item.id} item={item} />
         ))}
       </div>
-
-      <div>
-
-      </div>
     </Container>
   );
 };

@@ -1,4 +1,5 @@
 import VerDetalles from "./VerDetallesButton";
+import { Container } from "react-bootstrap";
 
 const Item = ({ product }) => {
   const InfoItem = product;
