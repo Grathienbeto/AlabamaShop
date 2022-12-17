@@ -28,7 +28,7 @@ export const CheckOutForm = () => {
   const [cvc, setCvc] = useState("");
 
   const [finalizado, setFinalizado] = useState(null);
-  const { carrito, total } = useContext(Context);
+  const { carrito, total, clear} = useContext(Context);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -47,6 +47,21 @@ export const CheckOutForm = () => {
     tarjeta,
     cvc,
   };
+        /////
+
+
+        // nuevoStock = item.stock - item.cantidad
+
+
+  const actualizarStock = (id, stockNuevo) => {
+    const updateStock = doc(db, 'items', id)
+    updateDoc(updateStock, {stock: stockNuevo})
+
+
+
+  }
+
+
 
   const finalizarCompra = () => {
     const compraCollection = collection(db, "ventas");
@@ -56,7 +71,20 @@ export const CheckOutForm = () => {
       total,
       date: serverTimestamp(),
     }).then((res) => setFinalizado(res.id));
+
+     carrito.forEach((item) => actualizarStock(item.id, (item.stock - item.cantidad)))
+     clear()
+
   };
+
+
+
+
+
+
+
+
+
 
   return finalizado ? (
     <Container>
