@@ -12,12 +12,13 @@ import { Context } from "../../context/cartContext";
 import { useContext } from "react";
 
 export const CheckOutForm = () => {
-
   // no es lo mas lindo que vas a ver en la vida, pero funciona
   const [comprador, setComprador] = useState([]);
+
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
+  const [repetirEmail, setRepetirEmail] = useState("");
   const [dni, setDni] = useState("");
   const [direccion, setDireccion] = useState("");
   const [localidad, setLocalidad] = useState("");
@@ -28,7 +29,7 @@ export const CheckOutForm = () => {
   const [cvc, setCvc] = useState("");
 
   const [finalizado, setFinalizado] = useState(null);
-  const { carrito, total, clear} = useContext(Context);
+  const { carrito, total, clear } = useContext(Context);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,6 +39,7 @@ export const CheckOutForm = () => {
     nombre,
     apellido,
     email,
+    repetirEmail,
     dni,
     direccion,
     localidad,
@@ -49,9 +51,9 @@ export const CheckOutForm = () => {
   };
 
   const actualizarStock = (id, stockNuevo) => {
-    const updateStock = doc(db, 'items', id)
-    updateDoc(updateStock, {stock: stockNuevo})
-  }
+    const updateStock = doc(db, "items", id);
+    updateDoc(updateStock, { stock: stockNuevo });
+  };
 
   const finalizarCompra = () => {
     const compraCollection = collection(db, "ventas");
@@ -62,9 +64,10 @@ export const CheckOutForm = () => {
       date: serverTimestamp(),
     }).then((res) => setFinalizado(res.id));
 
-     carrito.forEach((item) => actualizarStock(item.id, (item.stock - item.cantidad)))
-     clear()
-
+    carrito.forEach((item) =>
+      actualizarStock(item.id, item.stock - item.cantidad)
+    );
+    clear();
   };
 
   return finalizado ? (
@@ -77,7 +80,7 @@ export const CheckOutForm = () => {
   ) : (
     <Container>
       <Form onSubmit={handleSubmit} className="w-50 m-auto text-center">
-        <h2>CheckOutForm</h2>
+        <h2>CheckOut Form</h2>
         {/* Nombre */}
         <label htmlFor="nombre">
           Nombre
@@ -111,6 +114,18 @@ export const CheckOutForm = () => {
             id="email"
             name="email"
             onChange={(event) => setEmail(event.target.value)}
+          />
+        </label>
+        {/* Correo Electrónico */}
+        <label htmlFor="repetirEmail">
+          Repetir Correo Electrónico
+          <input
+            className=""
+            required
+            type="repetirEmail"
+            id="repetirEmail"
+            name="repetirEmail"
+            onChange={(event) => setRepetirEmail(event.target.value)}
           />
         </label>
 
@@ -213,19 +228,43 @@ export const CheckOutForm = () => {
           />
         </label>
 
-        <Button
-          onClick={() => {
-            setComprador(Comprador);
-            finalizarCompra();
-          }}
-          variant="outline-dark"
-          className="w-75 my-3"
-          type="submit"
-          value="SUBMIT"
-        >
-          SUBMIT
-        </Button>
+        {email === repetirEmail ? null : <div className="fs-5 text-danger my-3">Las direcciones de correo no concuerdan, por favor verifique</div> }
+
+        {email === repetirEmail &&
+        Object.values(Comprador).every((dato) => dato !== "") ? (
+          <Button
+            onClick={() => {
+              setComprador(Comprador);
+              finalizarCompra();
+            }}
+            variant="outline-dark"
+            className="w-75 my-3"
+            type="submit"
+            value="SUBMIT"
+          >
+            SUBMIT
+          </Button>
+        ) : (
+            <Button
+              disabled
+              variant="outline-dark"
+              className="w-75 my-3"
+              type="submit"
+              value="SUBMIT"
+            >
+              SUBMIT
+            </Button>
+        )}
       </Form>
     </Container>
   );
 };
+
+/*
+Object.values(Comprador).forEach(dato =>  
+(dato === "")
+)
+
+*/
+
+// 0354789148354849
