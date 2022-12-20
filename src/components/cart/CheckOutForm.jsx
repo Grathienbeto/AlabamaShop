@@ -29,6 +29,7 @@ export const CheckOutForm = () => {
   const [cvc, setCvc] = useState("");
 
   const [finalizado, setFinalizado] = useState(null);
+  const [detalle, setDetalle] = useState(null);
   const { carrito, total, clear } = useContext(Context);
 
   const handleSubmit = (event) => {
@@ -74,7 +75,21 @@ export const CheckOutForm = () => {
     <Container>
       <div>
         <h3>Gracias por su compra!</h3>
-        <h4>El ID de su compra es {finalizado}</h4>
+        <h4>
+          El ID de su compra es <span className="text-info">{finalizado}</span>
+        </h4>
+      </div>
+      <div>
+        <h3>El detalle de su compra:</h3>
+        <Container  >
+          {detalle.map((item) => (
+            <div className="d-flex gap-5">
+              <p>{item.name}</p>
+              <p>{item.cantidad} un.</p>
+              <p>${item.cantidad * item.precio}</p>
+            </div>
+          ))}
+        </Container>
       </div>
     </Container>
   ) : (
@@ -228,12 +243,17 @@ export const CheckOutForm = () => {
           />
         </label>
 
-        {email === repetirEmail ? null : <div className="fs-5 text-danger my-3">Las direcciones de correo no concuerdan, por favor verifique</div> }
+        {email === repetirEmail ? null : (
+          <div className="fs-5 text-danger my-3">
+            Las direcciones de correo no concuerdan, por favor verifique
+          </div>
+        )}
 
         {email === repetirEmail &&
         Object.values(Comprador).every((dato) => dato !== "") ? (
           <Button
             onClick={() => {
+              setDetalle(carrito);
               setComprador(Comprador);
               finalizarCompra();
             }}
@@ -245,26 +265,17 @@ export const CheckOutForm = () => {
             SUBMIT
           </Button>
         ) : (
-            <Button
-              disabled
-              variant="outline-dark"
-              className="w-75 my-3"
-              type="submit"
-              value="SUBMIT"
-            >
-              SUBMIT
-            </Button>
+          <Button
+            disabled
+            variant="outline-dark"
+            className="w-75 my-3"
+            type="submit"
+            value="SUBMIT"
+          >
+            SUBMIT
+          </Button>
         )}
       </Form>
     </Container>
   );
 };
-
-/*
-Object.values(Comprador).forEach(dato =>  
-(dato === "")
-)
-
-*/
-
-// 0354789148354849
