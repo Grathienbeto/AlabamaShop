@@ -48,3 +48,4 @@ Otra dificultad fue la lógica del Cart, eso me llevo a darme cuenta que tengo q
 
 La mayor dificultad, fue un relativo poco tiempo para poder hacer todo. Entre trabajo, cosas de la vida, tiempo de cursado, y tengo que reconocer que el mundial tambien me quito tiempo, no pude dedicarle mucho tiempo a lo que fue el CSS. Eso me queda pendiente.
 
+--- 
