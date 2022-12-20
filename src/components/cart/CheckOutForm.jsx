@@ -47,21 +47,11 @@ export const CheckOutForm = () => {
     tarjeta,
     cvc,
   };
-        /////
-
-
-        // nuevoStock = item.stock - item.cantidad
-
 
   const actualizarStock = (id, stockNuevo) => {
     const updateStock = doc(db, 'items', id)
     updateDoc(updateStock, {stock: stockNuevo})
-
-
-
   }
-
-
 
   const finalizarCompra = () => {
     const compraCollection = collection(db, "ventas");
@@ -76,15 +66,6 @@ export const CheckOutForm = () => {
      clear()
 
   };
-
-
-
-
-
-
-
-
-
 
   return finalizado ? (
     <Container>

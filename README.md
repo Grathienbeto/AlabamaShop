@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# ALABAMA TATTOO & PIERCING SHOP
+Shop del estudio de tatuajes [Alabama](https://grathienbeto.github.io/Alabama-Tattoo-Studio/), mi proyecto del Curso de Desarrollo Web de CODERHOUSE.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## Descripción del proyecto
 
-In the project directory, you can run:
+El E-Commerce de Alabama permite realizar una simulación de compra de los artículos de la tienda. 
+Si bien es un proyecto no muy elaborado en cuanto a la estética, trate de priorizar la parte lógica.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### E-commerce
+Este proyecto representa la parte de Front-End de lo que sería el shop del estudio de tatuajes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+### Tecnologías
+- Sitio desarrollado con React
+- React-Router
+- React-Bootstrap y Bootstrap*
+- Firebase (Firestore)
+- SASS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+_Comencé usando bootstrap tal cual había aprendido en Desarrollo Web, luego empecé a usar los componentes de bootstrap como componentes de React, lo cual facílito un poco el desarrollo, si bien no está implementado en todo el sitio._
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Desarrollo del Sitio
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Desarrollo de la barra de navegación y del _cartWidget_
+Luego se le realizaron modificiaciones para que muestre el total de los items dentro del carrito.
+2. El _itemListContainer_, _itemList_ e _item_. El contenedor es el smart component que le pasa información a sus hijos.  Permite el renderizado de las tarjetas de los productos.
+3. Luego desarrolle _itemDetailContainer_ e _itemDetail_. El contenedor y los detalles del item (precio, stock, etc.). Dentro del itemDetail también tenemos el _itemCount_ para modificar la cantidad de objetos a comprar.
+4. Desarrollo e implementación de **React Router**, y el uso de _useParams_ para hacer la creación dinámica de las págicas de los items (itemDetail) para cada uno.
+5. Cambiamos la forma de pasar información, primero haciendo pasar de padre a hijo por medio de props, para luego implementar _Context_ de React.
+6. Desarrollo de _Cart_ y sus hijos. Para plasmar la información de los productos agregados al carrito y su modificación (remove, clear).
+7. Se implemento Firebase de Google. Se subió la información de los items a esta base de datos y se consumió gracias a _useEffect_. Luego se agrego la posibilidad de modificar la base de datos (stock de los items.)
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Dificultades
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Si bien **Context** no me resultó difícil de entenderlo, si me costó aplicarlo. Algunos errores que tuve fueron los de no poder el Provider en el `index` sino ponerlo como padre de el `itemDetailContainer` y olvidarme de que tambien habia puesto el Provider como padre del `Cart`, por lo que tenía entre la navegación de los items del sitio no iba al carrito.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Otra dificultad fue la lógica del Cart, eso me llevo a darme cuenta que tengo que practicar más JS del que pensaba.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
